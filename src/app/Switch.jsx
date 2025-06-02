@@ -9,27 +9,26 @@ import "./Switch.css";
  * @param {boolean} [props.disabled] if the switch should be disabled
  */
 function Switch(props) {
-    const { active, onToggle, disabled } = props;
+  const { active, onToggle, disabled } = props;
 
-    const handleSwitch = (e) => {
-        e.stopPropagation();
-        if (disabled ?? false) return;
-        onToggle?.();
-    };
+  const handleSwitch = (e) => {
+    e.stopPropagation();
+    if (disabled ?? false) return;
+    onToggle?.();
+  };
 
-    return (
-        <div
-            onClick={handleSwitch}
-            role="presentation"
-            className={`switch-container ${active ? "active" : "inactive"} ${disabled ? "disabled" : ""}`}
-        >
-            <input type="checkbox" checked={active ?? false} readOnly />
-            <div
-                className={`switch-circle ${active ? "active" : "inactive"} ${disabled ? "disabled" : ""}`}
-            />
-        </div>
-    );
+  return (
+    <div
+      onClick={handleSwitch}
+      role="presentation"
+      className={`switch-container ${active ? "active" : "inactive"} ${disabled ? "disabled" : ""}`}
+    >
+      <input type="checkbox" checked={active ?? false} readOnly />
+      <div
+        className={`switch-circle ${active ? "active" : "inactive"} ${disabled ? "disabled" : ""}`}
+      />
+    </div>
+  );
 }
 
 export default Switch;
-
