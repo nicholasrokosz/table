@@ -25,7 +25,7 @@ export default async function Home({ searchParams }) {
   return (
     <div className="page">
       <DataTable data={filteredRows} columns={columns} title="System Install" />
-      <button onClick={clearTable}>Clear Table</button>
+      {/* <button onClick={clearTable}>Clear Table</button> */}
     </div>
   );
 }
