@@ -11,29 +11,27 @@ export default function DataTable({ data, columns, title }) {
           <button onClick={addRow}>Add New System</button>
         </div>
       </div>
-      <div className="table-wrapper">
-        <table>
-          <thead>
+      <table>
+        <thead>
+          <tr>
+            {columns.map((column) => (
+              <th key={column}>{column}</th>
+            ))}
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.length === 0 ? (
             <tr>
-              {columns.map((column) => (
-                <th key={column}>{column}</th>
-              ))}
-              <th></th>
+              <td className="empty-message" colSpan={columns.length + 1}>
+                No Data Available
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {data.length === 0 ? (
-              <tr>
-                <td className="empty-message" colSpan={columns.length + 1}>
-                  No Data Available
-                </td>
-              </tr>
-            ) : (
-              data.map((row) => <SystemTableRow row={row} key={row.id} />)
-            )}
-          </tbody>
-        </table>
-      </div>
+          ) : (
+            data.map((row) => <SystemTableRow row={row} key={row.id} />)
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }

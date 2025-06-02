@@ -207,4 +207,15 @@ a {
 .awake-cell {
   display: flex;
   gap: 8px;
+  align-items: center;
+  height: 100%;
+}
+
+.settings-link {
+  color: #5fb5f6;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

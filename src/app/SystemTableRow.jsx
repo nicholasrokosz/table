@@ -15,7 +15,9 @@ export default function SystemTableRow({ row }) {
         {awake ? "Awake" : "Sleeping"}
       </td>
       <td>{install_time.toLocaleString()}</td>
-      <td>System Settings</td>
+      <td>
+        <span className="settings-link">System Settings</span>
+      </td>
     </tr>
   );
 }
