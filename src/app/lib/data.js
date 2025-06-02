@@ -26,37 +26,35 @@ export async function clearTable() {
 }
 
 export async function addRow() {
-  // Validate form using Zod
-  // const validatedFields = CreateInvoice.safeParse({
-  //   customerId: formData.get("customerId"),
-  //   amount: formData.get("amount"),
-  //   status: formData.get("status"),
-  // });
-
-  // If form validation fails, return errors early. Otherwise, continue.
-  // if (!validatedFields.success) {
-  //   return {
-  //     errors: validatedFields.error.flatten().fieldErrors,
-  //     message: "Missing Fields. Failed to Create Invoice.",
-  //   };
-  // }
-
-  // Prepare data for insertion into the database
-  // const { customerId, amount, status } = validatedFields.data;
-  // const amountInCents = amount * 100;
-  // const date = new Date().toISOString().split("T")[0];
-
-  // Insert data into the database
   try {
     await sql`INSERT INTO systems DEFAULT VALUES`;
   } catch (error) {
-    // If a database error occurs, return a more specific error.
     return {
       message: "Database Error: Failed to add row.",
     };
   }
 
   // Revalidate the cache for the invoices page and redirect the user.
+  revalidatePath("/");
+}
+
+export async function updateSystemName(id, value) {
+  try {
+    await sql`UPDATE systems SET name = ${value} WHERE id = ${id};`;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to update system name.");
+  }
+  revalidatePath("/");
+}
+
+export async function updateLocation(id, value) {
+  try {
+    await sql`UPDATE systems SET location = ${value} WHERE id = ${id};`;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to update location.");
+  }
   revalidatePath("/");
 }
 

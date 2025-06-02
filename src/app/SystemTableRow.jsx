@@ -1,6 +1,7 @@
 "use client";
 
-import { toggleAwake } from "./lib/data";
+import { toggleAwake, updateLocation, updateSystemName } from "./lib/data";
+import RowInput from "./RowInput";
 import Switch from "./Switch";
 
 export default function SystemTableRow({ row }) {
@@ -8,8 +9,22 @@ export default function SystemTableRow({ row }) {
 
   return (
     <tr>
-      <th>{name}</th>
-      <td>{location}</td>
+      <td>
+        <RowInput
+          placeholder="Enter System Name"
+          onBlurAction={updateSystemName}
+          id={id}
+          storedValue={name}
+        />
+      </td>
+      <td>
+        <RowInput
+          placeholder="Enter Location"
+          onBlurAction={updateLocation}
+          id={id}
+          storedValue={location}
+        />
+      </td>
       <td className="awake-cell">
         <Switch active={awake} id={id} onToggle={() => toggleAwake(id)} />
         {awake ? "Awake" : "Sleeping"}
