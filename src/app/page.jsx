@@ -1,4 +1,4 @@
-import { fetchRows } from "./lib/data";
+import { clearTable, fetchRows } from "./lib/data";
 import DataTable from "./DataTable";
 
 export default async function Home() {
@@ -8,7 +8,8 @@ export default async function Home() {
 
   return (
     <div className="page">
-      <DataTable columns={columns} title="System Install" />
+      <DataTable data={rows} columns={columns} title="System Install" />
+      <button onClick={clearTable}>Clear Table</button>
     </div>
   );
 }
