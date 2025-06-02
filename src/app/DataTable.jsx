@@ -3,10 +3,15 @@
 import { useState } from "react";
 import { addRow } from "./lib/data";
 import SystemTableRow from "./SystemTableRow";
+import DataTableHeaderCell from "./DataTableHeaderCell";
 
 export default function DataTable({ data, columns, title }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchedData, setSearchedData] = useState(data);
+  const [sortState, setSortState] = useState({
+    column: "System Name",
+    asc: true,
+  });
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
@@ -49,7 +54,11 @@ export default function DataTable({ data, columns, title }) {
         <thead>
           <tr>
             {columns.map((column) => (
-              <th key={column}>{column}</th>
+              <DataTableHeaderCell
+                key={column}
+                title={column}
+                selected={column === sortState.column}
+              />
             ))}
             <th></th>
           </tr>
