@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import Button from "./Button";
 
 export default function DataTableHeaderCell({ title, position }) {
   const searchParams = useSearchParams();
@@ -32,12 +33,13 @@ export default function DataTableHeaderCell({ title, position }) {
 
   return (
     <th className={selected ? "selected-header" : "unselected-header"}>
-      <div
-        onClick={handleHeaderClick}
-        className={selected ? "selected-header-button" : ""}
-      >
-        {title}
-      </div>
+      {selected ? (
+        <Button onClick={handleHeaderClick} className="selected-header-button">
+          {title}
+        </Button>
+      ) : (
+        <Button onClick={handleHeaderClick}>{title}</Button>
+      )}
     </th>
   );
 }

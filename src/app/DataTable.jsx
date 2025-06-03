@@ -2,6 +2,7 @@ import { addRow } from "./lib/data";
 import SystemTableRow from "./SystemTableRow";
 import DataTableHeaderCell from "./DataTableHeaderCell";
 import Search from "./Search";
+import Button from "./Button";
 
 export default function DataTable({ data, columns, title }) {
   return (
@@ -10,7 +11,7 @@ export default function DataTable({ data, columns, title }) {
         <h1>{title}</h1>
         <div>
           <Search />
-          <button onClick={addRow}>Add New System</button>
+          <Button onClick={addRow}>Add New System</Button>
         </div>
       </div>
       <table>
