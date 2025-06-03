@@ -1,8 +1,43 @@
-export default function DataTableHeaderCell({ title, selected }) {
-  // if (!selected) return <th>{title}</th>;
+"use client";
+
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+
+export default function DataTableHeaderCell({ title, position }) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
+
+  const columnParam = +searchParams.get("column");
+  const descParam = !!searchParams.get("desc");
+
+  const selected = !columnParam ? position === 1 : position === columnParam;
+
+  const handleHeaderClick = () => {
+    const params = new URLSearchParams(searchParams);
+
+    if (position === 1) {
+      params.delete("column");
+    } else {
+      params.set("column", position);
+    }
+
+    if (selected && !descParam) {
+      params.set("desc", true);
+    } else {
+      params.delete("desc");
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <th className={selected ? "selected-header" : "unselected-header"}>
-      <div className={selected ? "selected-header-button" : ""}>{title}</div>
+      <div
+        onClick={handleHeaderClick}
+        className={selected ? "selected-header-button" : ""}
+      >
+        {title}
+      </div>
     </th>
   );
 }

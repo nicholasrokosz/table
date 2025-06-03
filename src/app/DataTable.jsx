@@ -16,11 +16,11 @@ export default function DataTable({ data, columns, title }) {
       <table>
         <thead>
           <tr>
-            {columns.map((column) => (
+            {columns.map(({ name, value }, index) => (
               <DataTableHeaderCell
-                key={column}
-                title={column}
-                // selected={column === sortState.column}
+                key={value}
+                title={name}
+                position={index + 1}
               />
             ))}
             <th></th>

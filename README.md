@@ -1,3 +1,5 @@
+First, include `.env` file with proper variables.
+
 To run the development server:
 
 ```bash
