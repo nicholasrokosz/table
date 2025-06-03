@@ -1,5 +1,6 @@
 "use client";
 
+import "./Search.css";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -20,7 +21,7 @@ export default function Search() {
 
   return (
     <input
-      className="search-bar"
+      className="search"
       placeholder="Search"
       defaultValue={searchParams.get("query")?.toString()}
       onChange={(e) => {

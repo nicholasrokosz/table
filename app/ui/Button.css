@@ -1,0 +1,13 @@
+.primary-button {
+  color: var(--background);
+  font-size: inherit;
+  font-family: inherit;
+  background: #5fb5f6;
+  border: none;
+  border-radius: 4px;
+
+  &:hover {
+    background: #89caf9;
+    cursor: pointer;
+  }
+}

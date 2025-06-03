@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./RowInput.css";
 
 export default function RowInput({
   placeholder,

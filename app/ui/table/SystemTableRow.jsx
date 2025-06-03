@@ -1,8 +1,8 @@
 "use client";
 
-import { toggleAwake, updateLocation, updateSystemName } from "./lib/data";
+import { toggleAwake, updateLocation, updateSystemName } from "../../lib/data";
 import RowInput from "./RowInput";
-import Switch from "./Switch";
+import Switch from "../Switch";
 
 export default function SystemTableRow({ row }) {
   const { id, name, location, awake, install_time } = row;

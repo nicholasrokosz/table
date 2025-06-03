@@ -1,7 +1,8 @@
 "use client";
 
+import "./DataTableHeaderCell.css";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import Button from "./Button";
+import Button from "../Button";
 
 export default function DataTableHeaderCell({ title, position }) {
   const searchParams = useSearchParams();

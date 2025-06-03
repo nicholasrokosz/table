@@ -1,0 +1,10 @@
+.row-input {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  caret-color: #5fb5f6;
+
+  &:focus-visible {
+    outline: none;
+  }
+}

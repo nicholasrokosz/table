@@ -1,8 +1,9 @@
-import { addRow } from "./lib/data";
+import { addRow } from "../../lib/data";
+import "./DataTable.css";
 import SystemTableRow from "./SystemTableRow";
 import DataTableHeaderCell from "./DataTableHeaderCell";
 import Search from "./Search";
-import Button from "./Button";
+import Button from "../Button";
 
 export default function DataTable({ data, columns, title }) {
   return (

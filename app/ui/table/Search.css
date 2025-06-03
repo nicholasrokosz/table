@@ -1,0 +1,21 @@
+.search {
+  height: 32px;
+  width: 240px;
+  font-size: inherit;
+  font-family: inherit;
+  color: var(--foreground);
+  background: var(--background);
+  border: 1px solid #6f6f6f;
+  border-radius: 2px;
+  padding: 0 8px;
+  caret-color: #5fb5f6;
+
+  &:focus-visible {
+    outline: none;
+    border-color: #ffb500;
+  }
+
+  &::placeholder {
+    padding-left: 2px;
+  }
+}
