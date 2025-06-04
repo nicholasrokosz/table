@@ -13,7 +13,7 @@
 .unselected-header {
   & > button {
     background: none;
-    padding: 12px;
+    padding: 8px;
     color: inherit;
     height: 100%;
     width: 100%;

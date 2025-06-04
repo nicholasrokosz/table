@@ -4,8 +4,8 @@ import "./Switch.css";
 /**
  * Renders a Switch that toggles on or toggles off.
  * @param {object} props
- * @param {boolean} [props.active] whether or not the switch is On or Off
- * @param {function} [props.onToggle] callback for the click event on the Switch
+ * @param {boolean} [props.active] whether or not the switch is active
+ * @param {function} [props.onToggle] callback for the click event on the switch
  * @param {boolean} [props.disabled] if the switch should be disabled
  */
 function Switch(props) {
