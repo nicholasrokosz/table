@@ -4,6 +4,12 @@ import "./DataTableHeaderCell.css";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Button from "../Button";
 
+/**
+ * Renders a sortable table header cell with click handling for sorting.
+ * @param {object} props
+ * @param {string} props.title - The text to display in the header
+ * @param {number} props.position - The position of the column (1-based index)
+ */
 export default function DataTableHeaderCell({ title, position }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();

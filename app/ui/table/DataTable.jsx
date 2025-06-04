@@ -5,6 +5,13 @@ import DataTableHeaderCell from "./DataTableHeaderCell";
 import Search from "./Search";
 import Button from "../Button";
 
+/**
+ * Renders a data table with sortable columns and the ability to add new rows.
+ * @param {object} props
+ * @param {Array} props.data - The data to display in the table
+ * @param {Array} props.columns - Configuration for the table columns
+ * @param {string} props.title - The title displayed above the table
+ */
 export default function DataTable({ data, columns, title }) {
   return (
     <div className="data-table">
